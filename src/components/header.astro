@@ -1,24 +1,23 @@
 ---
 import { Icon } from "astro-icon";
-import ThemeSwitcher from "~/components/theme-switcher.astro";
 
 const navItems = [
-  { title: "Features", url: "#features" },
-  { title: "Compatibility", url: "#compatibility" },
-  { title: "Showcase", url: "#showcase" },
+  { title: "About Me", url: "#features" },
+  { title: "Work", url: "#compatibility" },
+  { title: "Services", url: "#showcase" },
+  { title: "Design Process", url: "#showcase" },
+  { title: "Contact", url: "#showcase" },
 ];
 ---
 
 <header
   id="page-header"
-  class="absolute bottom-0 z-10 flex items-center justify-between w-full px-8 py-4 text-white border-b border-transparent"
+  class="z-10 flex items-center justify-between w-full pl-8 py-4 text-white border-b border-transparent absolute top-0 bottom-auto"
 >
   <a class="flex items-center gap-3 hover:!text-default" href="#">
-    <h1 class="sr-only">Astro</h1>
-    <Icon name="logomark" class="h-10" />
-    <Icon name="wordmark" class="hidden h-4 sm:block" />
+    <h1>Paige Potter</h1>
   </a>
-  <div>
+  <div class="bg-default px-8 py-2">
     <div class="flex items-center gap-6">
       <nav class="hidden sm:block">
         <ul class="flex items-center gap-6">
@@ -41,7 +40,6 @@ const navItems = [
       >
         <Icon pack="mdi" name="menu" class="h-8" />
       </button>
-      <ThemeSwitcher />
     </div>
     <div id="menu-modal" class="hidden modal" aria-hidden="true">
       <div class="fixed inset-0 px-8 py-4 bg-default">
@@ -100,10 +98,10 @@ const navItems = [
   openNavButton.addEventListener("click", openMenu);
   closeNavButton.addEventListener("click", closeMenu);
 
-  document.addEventListener("scroll", () => {
-    const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-    header.classList.toggle("fixed-header", d < 0);
-  });
+  // document.addEventListener("scroll", () => {
+  //   const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+  //   header.classList.toggle("fixed-header", d < 0);
+  // });
 
   menu.addEventListener("click", (event) => {
     if ((event.target as HTMLElement).tagName === "A") {
