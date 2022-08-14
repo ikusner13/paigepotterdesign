@@ -1,6 +1,5 @@
 ---
 import { generateImage } from "astro-eleventy-img";
-import { Icon } from "astro-icon";
 import Starfield from "~/components/starfield.astro";
 import HeroImage from "~/components/hero-image.astro";
 
@@ -25,18 +24,6 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
     <HeroImage />
   </div>
   <div class="relative grid h-full sm:grid-cols-2 place-items-center">
-    <h2
-      class="flex flex-col self-end gap-2 sm:gap-4 sm:self-auto sm:justify-self-end"
-    >
-      <Icon name="logomark" class="h-24 text-white md:h-32" />
-      <div
-        class="font-extrabold tracking-tighter text-center text-8xl gradient-text"
-      >
-        Build fast
-        <br /> websites,
-        <br /> faster.
-      </div>
-    </h2>
     <picture
       class="self-start w-2/3 max-w-3xl sm:w-10/12 sm:self-auto sm:justify-self-start"
     >
