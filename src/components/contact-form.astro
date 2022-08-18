@@ -1,0 +1,59 @@
+<div class="w-full flex justify-center items-center">
+  <div class="rounded-md bg-zinc-800 px-8 py-5">
+    <h1 class="text-5xl pb-2">Contact Me</h1>
+    <form class="w-full" autocomplete="off">
+      <div class="mb-2">
+        <label class="block" for="name">Name</label>
+        <input
+          class="focus:outline-none px-3 py-2 w-full bg-transparent border-b-2 border-solid border-zinc-800 focus:border-white"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your name"
+        />
+      </div>
+      <div class="mb-2">
+        <label class="block" for="email">Email</label>
+        <input
+          class="focus:outline-none px-3 py-2 w-full bg-transparent border-b-2 border-solid border-zinc-800 focus:border-white"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your email"
+        />
+      </div>
+      <div class="mb-2">
+        <label class="block" for="message">Message</label>
+        <textarea
+          class="focus:outline-none px-3 py-2 w-full resize-none bg-transparent border-b-2 border-solid border-zinc-800 focus:border-white"
+          id="message"
+          name="message"
+          placeholder="Your message"
+          rows="3"></textarea>
+      </div>
+      <div class="flex justify-center">
+        <button
+          class="py-1 px-4 w-full border-b-2 border-solid border-zinc-800 hover:border-white"
+          type="submit"
+          >Send
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  /* Change the white to any color */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px rgb(39 39 42 / var(--tw-bg-opacity)) inset !important;
+  }
+
+  /*Change text in autofill textbox*/
+  input:-webkit-autofill {
+    -webkit-text-fill-color: yellow !important;
+    caret-color: rgb(39 39 42 / var(--tw-bg-opacity)) !important;
+  }
+</style>

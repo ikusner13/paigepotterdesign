@@ -1,6 +1,6 @@
 ---
 title: "About Me"
-layout: ../layouts/about-me-layout.astro
+layout: ../layouts/BaseLayout.astro
 ---
 
 Lorem _ipsum_ `dolor` sit amet, consectetur adipiscing elit. Aliquam scelerisque erat risus, non pellentesque felis auctor vitae. Suspendisse in magna at mauris ornare semper. Integer tempus risus eu felis gravida volutpat. Integer condimentum orci diam, eu consequat neque dignissim sit amet. In tempor ac urna sit amet varius. Cras vitae faucibus libero, non ultricies ipsum. Ut blandit nisl ac viverra ultricies. Mauris odio felis, feugiat in lectus a, vestibulum faucibus justo. Integer facilisis quam in quam venenatis, in pulvinar mauris blandit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris non consectetur turpis. Curabitur non diam sit amet est auctor suscipit id nec diam.

@@ -5,16 +5,16 @@ import Intro from "~/components/intro.astro";
 import Showcase from "~/components/showcase.astro";
 import "~/styles/index.css";
 import Splash from "../components/splash.astro";
-import DefaultLayout from "../layouts/DefaultLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const description =
   "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
 ---
 
-<DefaultLayout title="Landing Page" description={description}>
+<BaseLayout title="Landing Page" description={description}>
   <Splash slot="splash" />
   <Intro />
   <Features />
   <Compatibility />
   <Showcase />
-</DefaultLayout>
+</BaseLayout>

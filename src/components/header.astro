@@ -5,9 +5,15 @@ const navItems = [
   { title: "ABOUT ME", url: "/about-me" },
   { title: "WORK", url: "/work" },
   { title: "SERVICES", url: "/services" },
-  { title: "DESIGN PROCESS", url: "design-process" },
+  { title: "DESIGN PROCESS", url: "/design-process" },
   { title: "CONTACT", url: "/contact" },
 ];
+
+const {
+  url: { pathname },
+} = Astro;
+
+console.log(pathname);
 ---
 
 <header
@@ -22,13 +28,21 @@ const navItems = [
       <nav class="hidden sm:block">
         <ul class="flex items-center gap-6">
           {
-            navItems.map(({ title, url }) => (
-              <li>
-                <a class="text-sm" href={url}>
-                  {title}
-                </a>
-              </li>
-            ))
+            navItems.map(({ title, url }) => {
+              const selected = url === pathname;
+
+              return (
+                <li class="inline-block">
+                  <a
+                    class={`text-sm ${selected && "font-bold"} hover:font-bold`}
+                    href={url}
+                    title={title}
+                  >
+                    {title}
+                  </a>
+                </li>
+              );
+            })
           }
         </ul>
       </nav>
@@ -120,6 +134,14 @@ const navItems = [
 </noscript> -->
 
 <style>
+  a::before {
+    display: block;
+    content: attr(title);
+    font-weight: bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
   .fixed-header {
     @apply fixed top-0 bottom-auto;
     @apply text-default bg-default border-default;

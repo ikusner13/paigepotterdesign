@@ -1,9 +1,11 @@
 ---
-import DefaultLayout from "../layouts/DefaultLayout.astro";
+import ContactForm from "../components/contact-form.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const description = "Contact";
 ---
 
-<DefaultLayout title="Contact Me" description={description}>
+<BaseLayout title="Contact Me" description={description}>
   <div>Contact</div>
-</DefaultLayout>
+  <ContactForm />
+</BaseLayout>
