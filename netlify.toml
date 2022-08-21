@@ -1,0 +1,2 @@
+[functions]
+  external_node_modules = ["svgo", "astro", "@11ty/eleventy-fetch"]
