@@ -9,11 +9,6 @@ import image from "@astrojs/image";
 export default defineConfig({
   site: "https://astro-moon-landing.netlify.app/",
   integrations: [tailwind(), react(), image()],
-  vite: {
-    ssr: {
-      external: ["@11ty/eleventy-img", "svgo"]
-    }
-  },
   output: "server",
-  adapter: netlify()
+  adapter: netlify(),
 });

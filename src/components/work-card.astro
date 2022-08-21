@@ -1,21 +1,8 @@
 ---
-import { generateImage, generatePlaceholder } from "astro-eleventy-img";
+import { Image } from "@astrojs/image/components";
+import placeholder from "~/data/showcase/images/astro-docs.png";
 
-const { title, image, url, index } = Astro.props;
-const widths = [450, 800];
-const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
-const { webp, avif, png } = generateImage(image, {
-  widths,
-  formats: ["webp", "avif", "png"],
-  outputDir: "public/assets/images/showcase",
-  urlPath: "/assets/images/showcase",
-});
-const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
-const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
-const pngSrcset = png.map(({ srcset }) => srcset).join(",");
-const placeholder = await generatePlaceholder(image, {
-  outputDir: "src/assets/placeholders/showcase",
-});
+const { title, url, image, index } = Astro.props;
 ---
 
 <div
@@ -30,18 +17,7 @@ const placeholder = await generatePlaceholder(image, {
   </div>
   <div class="w-full p-2">
     <a href="#">
-      <picture>
-        <source srcset={avifSrcset} type="image/avif" />
-        <source srcset={webpSrcset} type="image/webp" />
-        <source srcset={pngSrcset} type="image/png" />
-        <img
-          src={png[0].src}
-          alt={title}
-          width={widths[0]}
-          height={widths[0]}
-          sizes={sizes}
-        />
-      </picture>
+      <Image src={placeholder} />
     </a>
   </div>
 </div>
