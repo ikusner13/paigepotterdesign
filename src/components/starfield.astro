@@ -1,22 +1,8 @@
 ---
-import { generateImage } from "astro-eleventy-img";
-
-const widths = [450, 800];
-
-const { png } = generateImage("src/assets/render.png", {
-  widths,
-  formats: ["webp", "avif", "png"],
-  outputDir: "public/assets/images/astronaut",
-  urlPath: "/assets/images/astronaut",
-});
+import { Image } from "@astrojs/image/components";
+import imageSrc from "../assets/render.png";
 ---
 
 <div class="absolute inset-0">
-  <img
-    src={png[1].url}
-    alt="render"
-    class="object-cover w-full h-full"
-    width={png[1].width}
-    height={png[1].height}
-  />
+  <Image src={imageSrc} />
 </div>

@@ -2,18 +2,16 @@
 import { Icon } from "astro-icon";
 
 const navItems = [
-  { title: "ABOUT ME", url: "/about-me" },
-  { title: "WORK", url: "/work" },
-  { title: "SERVICES", url: "/services" },
-  { title: "DESIGN PROCESS", url: "/design-process" },
-  { title: "CONTACT", url: "/contact" },
+  { title: "ABOUT ME", url: "/about-me", color: "text-orange-400" },
+  { title: "WORK", url: "/work", color: "text-red-400" },
+  { title: "SERVICES", url: "/services", color: "text-blue-400" },
+  { title: "DESIGN PROCESS", url: "/design-process", color: "text-green-400" },
+  { title: "CONTACT", url: "/contact", color: "text-orange-400" },
 ];
 
 const {
   url: { pathname },
 } = Astro;
-
-console.log(pathname);
 ---
 
 <header
@@ -28,13 +26,15 @@ console.log(pathname);
       <nav class="hidden sm:block">
         <ul class="flex items-center gap-6">
           {
-            navItems.map(({ title, url }) => {
+            navItems.map(({ title, url, color }) => {
               const selected = url === pathname;
 
               return (
                 <li class="inline-block">
                   <a
-                    class={`text-sm ${selected && "font-bold"} hover:font-bold`}
+                    class={`text-sm ${
+                      selected && `font-bold ${color}`
+                    } hover:font-bold`}
                     href={url}
                     title={title}
                   >
@@ -56,8 +56,8 @@ console.log(pathname);
       </button>
     </div>
     <div id="menu-modal" class="hidden modal" aria-hidden="true">
-      <div class="fixed inset-0 px-8 py-4 bg-default">
-        <div class="space-y-4" role="dialog" aria-modal="true">
+      <div class="fixed inset-0 px-8 py-6 bg-default">
+        <div role="dialog" aria-modal="true">
           <header class="text-right">
             <button
               id="close-nav-button"
@@ -68,9 +68,6 @@ console.log(pathname);
               <Icon pack="mdi" name="close" class="h-8" />
             </button>
           </header>
-          <div class="flex justify-center">
-            <Icon name="logomark" class="h-16" />
-          </div>
           <nav>
             <ul class="flex flex-col">
               {
@@ -95,8 +92,6 @@ console.log(pathname);
 
   const menuModalId = "menu-modal";
 
-  const header: HTMLElement = document.querySelector("#page-header");
-  const page = document.documentElement;
   const menu = document.querySelector(`#${menuModalId} ul`);
   const openNavButton = document.querySelector("#open-nav-button");
   const closeNavButton = document.querySelector("#close-nav-button");
@@ -112,26 +107,12 @@ console.log(pathname);
   openNavButton.addEventListener("click", openMenu);
   closeNavButton.addEventListener("click", closeMenu);
 
-  // document.addEventListener("scroll", () => {
-  //   const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-  //   header.classList.toggle("fixed-header", d < 0);
-  // });
-
   menu.addEventListener("click", (event) => {
     if ((event.target as HTMLElement).tagName === "A") {
       closeMenu();
     }
   });
 </script>
-
-<!-- https://github.com/withastro/compiler/issues/395 -->
-<!-- <noscript>
-  <style>
-    #open-nav-button {
-      @apply hidden;
-    }
-  </style>
-</noscript> -->
 
 <style>
   a::before {

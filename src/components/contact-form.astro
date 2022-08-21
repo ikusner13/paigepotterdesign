@@ -1,46 +1,56 @@
-<div class="w-full flex justify-center items-center">
-  <div class="rounded-md bg-zinc-800 px-8 py-5">
-    <h2 class="text-3xl pb-2">Contact Me</h2>
-    <form class="w-full" autocomplete="off" data-netlify="true" name="contact">
-      <div class="mb-2">
-        <label class="block" for="name">Name</label>
-        <input
-          class="focus:outline-none px-3 py-2 w-full bg-transparent border-b-2 border-solid border-zinc-800 focus:border-white"
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your name"
-        />
+---
+import ContactInformation from "./contact-information.astro";
+import FormCheckbox from "./form-checkbox.astro";
+---
+
+<section>
+  <div class="rounded-md bg-zinc-800 p-4 w-full">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr]">
+      <ContactInformation />
+      <div class="p-4 w-full">
+        <form autocomplete="off" data-netlify="true" name="contact">
+          <div class="mb-2">
+            <label class="block text-sm" for="name">Name</label>
+            <input
+              class="focus:outline-none py-2 w-full bg-transparent border-b-2 border-solid border-zinc-800 focus:border-orange-400"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+            />
+          </div>
+          <div class="mb-2">
+            <label class="block text-sm" for="email">Email</label>
+            <input
+              class="focus:outline-none py-2 w-full bg-transparent border-b-2 border-solid border-zinc-800 focus:border-orange-400"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your email"
+            />
+          </div>
+          <FormCheckbox />
+          <div class="mb-2">
+            <label class="block text-sm" for="message">Message</label>
+            <textarea
+              class="focus:outline-none py-2 w-full resize-none bg-transparent border-b-2 border-solid border-zinc-800 focus:border-orange-400"
+              id="message"
+              name="message"
+              placeholder="Your message"
+              rows="3"></textarea>
+          </div>
+          <div class="flex justify-center">
+            <button
+              class="py-1 px-4 w-full border-b-2 border-solid border-zinc-800 hover:bg-orange-400 rounded-md"
+              type="submit"
+              >Send
+            </button>
+          </div>
+        </form>
       </div>
-      <div class="mb-2">
-        <label class="block" for="email">Email</label>
-        <input
-          class="focus:outline-none px-3 py-2 w-full bg-transparent border-b-2 border-solid border-zinc-800 focus:border-white"
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Your email"
-        />
-      </div>
-      <div class="mb-2">
-        <label class="block" for="message">Message</label>
-        <textarea
-          class="focus:outline-none px-3 py-2 w-full resize-none bg-transparent border-b-2 border-solid border-zinc-800 focus:border-white"
-          id="message"
-          name="message"
-          placeholder="Your message"
-          rows="3"></textarea>
-      </div>
-      <div class="flex justify-center">
-        <button
-          class="py-1 px-4 w-full border-b-2 border-solid border-zinc-800 hover:bg-zinc-500"
-          type="submit"
-          >Send
-        </button>
-      </div>
-    </form>
+    </div>
   </div>
-</div>
+</section>
 
 <style>
   /* Change the white to any color */

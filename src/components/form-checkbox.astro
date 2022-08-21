@@ -1,0 +1,32 @@
+---
+const services = [
+  "Interior Design",
+  "Set Design",
+  "Production Assistant",
+  "Decorator",
+];
+---
+
+<div>
+  <fieldset>
+    <legend class="text-sm"> What are you interested in?</legend>
+    <div class="flex flex-wrap mb-3">
+      {
+        services.map((service, index) => {
+          return (
+            <div class="flex items-center mr-3 py-2 last:mr-0">
+              <input
+                class="mr-2 accent-orange-400 rounded-full"
+                type="checkbox"
+                id={service}
+                name="interests"
+                value={service}
+              />
+              <label for={service}>{service}</label>
+            </div>
+          );
+        })
+      }
+    </div>
+  </fieldset>
+</div>

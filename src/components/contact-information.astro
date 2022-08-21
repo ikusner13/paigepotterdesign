@@ -1,0 +1,39 @@
+---
+import Icon from "astro-icon";
+
+const email = "paigep222@gmail.com";
+const phone = "440-867-3615";
+
+const contacts = [
+  {
+    icon: "mdi:email",
+    value: email,
+  },
+  {
+    icon: "mdi:phone",
+    value: phone,
+  },
+  {
+    icon: "fa-brands:linkedin",
+    value: "LinkedIn link",
+  },
+  {
+    icon: "fa-brands:instagram",
+    value: "Instagram link",
+  },
+];
+---
+
+<div class="w-full bg-zinc-200 bg-opacity-10 p-2 rounded-md">
+  <h2 class="text-lg pb-5">Contact Information</h2>
+  <ul class="grid gap-4">
+    {
+      contacts.map((contact) => (
+        <li class="flex items-center flex-wrap">
+          <Icon name={contact.icon} class="w-4 h-4 mr-2 text-orange-400" />
+          <span class="text-sm">{contact.value}</span>
+        </li>
+      ))
+    }
+  </ul>
+</div>
