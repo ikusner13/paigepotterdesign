@@ -6,11 +6,13 @@ import WorkCard from "./work-card.astro";
 
 <ContentSection title="Showcase" id="showcase">
   <div class="max-w-6xl space-y-2">
-    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-4">
       {
-        sites.map(({ title, image, url }) => (
-          <WorkCard title={title} image={image} url={url} />
-        ))
+        sites.map(({ title, image, url }, index) => {
+          return (
+            <WorkCard title={title} image={image} url={url} index={index} />
+          );
+        })
       }
     </div>
   </div>

@@ -7,7 +7,7 @@ import FormCheckbox from "./form-checkbox.astro";
   <div class="rounded-md bg-zinc-800 p-4 w-full">
     <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr]">
       <ContactInformation />
-      <div class="p-4 w-full">
+      <div class="p-4 pr-0 w-full">
         <form autocomplete="off" data-netlify="true" name="contact">
           <div class="mb-2">
             <label class="block text-sm" for="name">Name</label>
@@ -41,7 +41,7 @@ import FormCheckbox from "./form-checkbox.astro";
           </div>
           <div class="flex justify-center">
             <button
-              class="py-1 px-4 w-full border-b-2 border-solid border-zinc-800 hover:bg-orange-400 rounded-md"
+              class="py-1 px-4 w-full border-b-2 border-solid border-zinc-800 hover:bg-orange-400 rounded-md ease-in-out duration-150"
               type="submit"
               >Send
             </button>

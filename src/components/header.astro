@@ -101,7 +101,9 @@ const {
   };
 
   const closeMenu = () => {
-    MicroModal.close(menuModalId);
+    setTimeout(() => {
+      MicroModal.close(menuModalId);
+    }, 300);
   };
 
   openNavButton.addEventListener("click", openMenu);
@@ -109,7 +111,7 @@ const {
 
   menu.addEventListener("click", (event) => {
     if ((event.target as HTMLElement).tagName === "A") {
-      closeMenu();
+      // closeMenu();
     }
   });
 </script>

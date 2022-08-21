@@ -16,13 +16,18 @@ const services = [
           return (
             <div class="flex items-center mr-3 py-2 last:mr-0">
               <input
-                class="mr-2 accent-orange-400 rounded-full"
+                class="mr-2 accent-orange-400 rounded-full service-checkbox"
                 type="checkbox"
                 id={service}
                 name="interests"
                 value={service}
               />
-              <label for={service}>{service}</label>
+              <label
+                class="service-label border-b-2 border-solid border-zinc-800"
+                for={service}
+              >
+                {service}
+              </label>
             </div>
           );
         })
@@ -30,3 +35,9 @@ const services = [
     </div>
   </fieldset>
 </div>
+
+<style>
+  .service-checkbox:checked + .service-label {
+    border-bottom: 2px solid #fb923c;
+  }
+</style>
