@@ -1,5 +1,8 @@
 ---
 import { generateImage } from "astro-eleventy-img";
+import { Image } from "@astrojs/image/components";
+import renderImage from "../assets/render.png";
+
 const widths = [450, 800, 1200, 1920];
 const sizes = "100vw";
 const { webp, avif, png } = generateImage("src/assets/render.png", {
@@ -11,9 +14,8 @@ const { webp, avif, png } = generateImage("src/assets/render.png", {
 const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
 const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
 const pngSrcset = png.map(({ srcset }) => srcset).join(",");
----
 
-<div>
+/* <div>
   <picture>
     <source type="image/avif" srcset={avifSrcset} {sizes} />
     <source type="image/webp" srcset={webpSrcset} {sizes} />
@@ -26,4 +28,9 @@ const pngSrcset = png.map(({ srcset }) => srcset).join(",");
       class="object-cover w-full h-screen lg:h-full"
     />
   </picture>
+</div> */
+---
+
+<div>
+  <Image src={renderImage} />
 </div>
