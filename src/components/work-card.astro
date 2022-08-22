@@ -1,5 +1,5 @@
 ---
-import { generateImage, generatePlaceholder } from "astro-eleventy-img";
+import { generateImage } from "astro-eleventy-img";
 
 const { title, url, image, index } = Astro.props;
 
@@ -14,9 +14,6 @@ const { webp, avif, png } = generateImage(image, {
 const avifSrcset = avif.map(({ srcset }) => srcset).join(",");
 const webpSrcset = webp.map(({ srcset }) => srcset).join(",");
 const pngSrcset = png.map(({ srcset }) => srcset).join(",");
-const placeholder = await generatePlaceholder(image, {
-  outputDir: "src/assets/placeholders/showcase",
-});
 ---
 
 <div
@@ -42,7 +39,6 @@ const placeholder = await generatePlaceholder(image, {
           loading="lazy"
           decoding="async"
           onload="this.style.backgroundImage='none'"
-          style={`background-image: url(${placeholder.dataURI});`}
           alt={`A screenshot of ${url}`}
         />
       </picture>
