@@ -11,4 +11,9 @@ export default defineConfig({
   integrations: [tailwind(), react(), image()],
   output: "server",
   adapter: netlify(),
+  vite: {
+    ssr: {
+      external: ["@11ty/eleventy-img"],
+    },
+  },
 });
