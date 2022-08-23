@@ -12,7 +12,7 @@ export default defineConfig({
   // adapter: netlify(),
   vite: {
     ssr: {
-      external: ["@11ty/eleventy-img"],
+      external: ["@11ty/eleventy-img, svgo"],
     },
   },
 });

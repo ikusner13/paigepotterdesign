@@ -23,7 +23,7 @@ const {
   </a>
   <div class="bg-default px-8 py-2">
     <div class="flex items-center gap-6">
-      <nav class="hidden sm:block">
+      <nav class="hidden lg:block">
         <ul class="flex items-center gap-6">
           {
             navItems.map(({ title, url, color }) => {
@@ -34,7 +34,7 @@ const {
                   <a
                     class={`text-sm ${
                       selected && `font-bold ${color}`
-                    } hover:font-bold`}
+                    } hover:font-bold duration-150 ease-in-out`}
                     href={url}
                     title={title}
                   >
@@ -49,7 +49,7 @@ const {
       <button
         id="open-nav-button"
         type="button"
-        class="btn sm:hidden"
+        class="btn lg:hidden"
         aria-label="Navigation"
       >
         <Icon pack="mdi" name="menu" class="h-8" />
