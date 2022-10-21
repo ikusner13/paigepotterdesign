@@ -1,12 +1,15 @@
 ---
-import { Icon } from "astro-icon";
+import { Image } from "@astrojs/image/components";
+import navIcon from "../assets/navIcon.png";
 
-const navItems = [
-  { title: "ABOUT ME", url: "/about-me", color: "text-orange-400" },
-  { title: "WORK", url: "/work", color: "text-red-400" },
-  { title: "SERVICES", url: "/services", color: "text-blue-400" },
-  { title: "DESIGN PROCESS", url: "/design-process", color: "text-green-400" },
-  { title: "CONTACT", url: "/contact", color: "text-orange-400" },
+const leftSideItems = [
+  { title: "PORTFOLIO", url: "/portfolio", color: "text-orange-400" },
+  { title: "SERVICES", url: "/services", color: "text-red-400" },
+];
+
+const rightSideItems = [
+  { title: "ABOUT ME", url: "/about-me", color: "text-blue-400" },
+  { title: "CONTACT", url: "/contact", color: "text-green-400" },
 ];
 
 const {
@@ -16,46 +19,60 @@ const {
 
 <header
   id="page-header"
-  class="z-10 flex items-center justify-between w-full pl-8 py-4 text-white border-b border-transparent absolute top-0 bottom-auto"
+  class="z-10 w-full py-12 text-white border-b border-transparent absolute top-0 bottom-auto w-100"
 >
-  <a class="flex items-center gap-3 hover:!text-default" href="/">
-    <h1>PAIGE POTTER</h1>
-  </a>
-  <div class="bg-default px-8 py-2">
-    <div class="flex items-center gap-6">
-      <nav class="hidden lg:block">
-        <ul class="flex items-center gap-6">
-          {
-            navItems.map(({ title, url, color }) => {
-              const selected = url === pathname;
+  <nav>
+    <ul class="flex items-center justify-around">
+      {
+        leftSideItems.map(({ title, url, color }) => {
+          const selected = url === pathname;
 
-              return (
-                <li class="inline-block">
-                  <a
-                    class={`text-sm ${
-                      selected && `font-bold ${color}`
-                    } hover:font-bold duration-150 ease-in-out`}
-                    href={url}
-                    title={title}
-                  >
-                    {title}
-                  </a>
-                </li>
-              );
-            })
-          }
-        </ul>
-      </nav>
-      <button
+          return (
+            <li class="inline-block">
+              <a
+                class={`text-sm ${
+                  selected && `font-bold ${color}`
+                } hover:font-bold duration-150 ease-in-out`}
+                href={url}
+                title={title}
+              >
+                {title}
+              </a>
+            </li>
+          );
+        })
+      }
+      <Image src={navIcon} alt="nav-icon" width={90} />
+      {
+        rightSideItems.map(({ title, url, color }) => {
+          const selected = url === pathname;
+
+          return (
+            <li class="inline-block">
+              <a
+                class={`text-sm ${
+                  selected && `font-bold ${color}`
+                } hover:font-bold duration-150 ease-in-out`}
+                href={url}
+                title={title}
+              >
+                {title}
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+    <!-- <button
         id="open-nav-button"
         type="button"
         class="btn lg:hidden"
         aria-label="Navigation"
       >
         <Icon pack="mdi" name="menu" class="h-8" />
-      </button>
-    </div>
-    <div id="menu-modal" class="hidden modal" aria-hidden="true">
+      </button> -->
+
+    <!-- <!-- <div id="menu-modal" class="hidden modal" aria-hidden="true">
       <div class="fixed inset-0 px-8 py-6 bg-default">
         <div role="dialog" aria-modal="true">
           <header class="text-right">
@@ -83,8 +100,8 @@ const {
           </nav>
         </div>
       </div>
-    </div>
-  </div>
+    </div> -->
+  </nav>
 </header>
 
 <script>
