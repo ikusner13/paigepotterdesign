@@ -1,20 +1,12 @@
 ---
-import Compatibility from "~/components/compatibility.astro";
-import Features from "~/components/features.astro";
-import Intro from "~/components/intro.astro";
 import "~/styles/index.css";
 import Splash from "../components/splash.astro";
-import WorkShowcase from "../components/work-showcase.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import LandingLayout from "../layouts/LandingLayout.astro";
 
 const description =
   "Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.";
 ---
 
-<BaseLayout title="Landing Page" description={description}>
+<LandingLayout title="Landing Page" description={description}>
   <Splash slot="splash" />
-  <Intro />
-  <Features />
-  <Compatibility />
-  <WorkShowcase />
-</BaseLayout>
+</LandingLayout>
